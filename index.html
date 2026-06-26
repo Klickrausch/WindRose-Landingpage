@@ -94,21 +94,28 @@
   .hero-trust span::before{content:"✓";color:var(--sage);font-weight:700;}
 
   .hero-card{
-    background:var(--white);border-radius:16px;padding:30px 28px;color:var(--text);
+    background:var(--white);border-radius:16px;padding:32px 28px;color:var(--text);
     box-shadow:0 20px 50px rgba(0,0,0,.25);
   }
   .hero-card h3{font-size:1.25rem;margin-bottom:6px;}
-  .hero-card p.small{font-size:.9rem;color:var(--text-soft);margin-bottom:18px;}
-  .field{margin-bottom:14px;}
-  .field label{display:block;font-size:.85rem;font-weight:600;margin-bottom:5px;color:var(--text);}
-  .field input,.field select,.field textarea{
-    width:100%;padding:12px 14px;border:1.5px solid #DCE3DF;border-radius:8px;
-    font-family:inherit;font-size:.95rem;color:var(--text);background:#FDFBF7;
+  .hero-card p.small{font-size:.9rem;color:var(--text-soft);margin-bottom:24px;}
+  .contact-options{display:flex;flex-direction:column;gap:14px;}
+  .contact-btn{
+    display:flex;align-items:center;gap:14px;padding:16px 20px;border-radius:10px;
+    text-decoration:none;font-weight:600;font-size:1rem;transition:transform .15s ease,box-shadow .15s ease;
   }
-  .field input:focus,.field textarea:focus{outline:none;border-color:var(--primary);}
-  .consent{display:flex;gap:8px;font-size:.8rem;color:var(--text-soft);margin-bottom:16px;align-items:flex-start;}
-  .consent input{margin-top:3px;}
-  .reassure{text-align:center;font-size:.82rem;color:var(--text-soft);margin-top:12px;}
+  .contact-btn:hover{transform:translateY(-2px);}
+  .contact-btn .cb-icon{font-size:1.4rem;flex-shrink:0;}
+  .contact-btn .cb-text{display:flex;flex-direction:column;}
+  .contact-btn .cb-label{font-size:.75rem;font-weight:500;opacity:.75;line-height:1.2;}
+  .contact-btn .cb-main{font-size:1rem;font-weight:700;line-height:1.3;}
+  .cb-zeeg{background:var(--accent);color:var(--white);box-shadow:0 8px 20px rgba(146,57,90,.35);}
+  .cb-zeeg:hover{background:var(--accent-dark);box-shadow:0 10px 24px rgba(146,57,90,.45);}
+  .cb-phone{background:var(--primary-light);color:var(--primary-dark);border:1.5px solid var(--primary);}
+  .cb-phone:hover{background:#dcecea;}
+  .cb-mail{background:var(--bg-alt);color:var(--text);border:1.5px solid #D0C8BA;}
+  .cb-mail:hover{background:#e8e0d0;}
+  .card-note{text-align:center;font-size:.8rem;color:var(--text-soft);margin-top:16px;}
 
   /* ===== PROBLEM ===== */
   .problem{background:var(--bg);}
@@ -210,31 +217,38 @@
       </div>
 
       <div class="hero-card" id="kontakt">
-        <h3>Jetzt unverbindlich anfragen</h3>
-        <p class="small">Wir melden uns innerhalb von 24 Stunden persönlich bei Ihnen.</p>
-        <form action="#" method="post">
-          <div class="field">
-            <label for="name">Ihr Vorname</label>
-            <input type="text" id="name" name="name" required>
-          </div>
-          <div class="field">
-            <label for="kontakt-feld">Telefon oder E-Mail</label>
-            <input type="text" id="kontakt-feld" name="kontakt" required>
-          </div>
-          <div class="field">
-            <label for="alter">Alter Ihres Kindes</label>
-            <input type="text" id="alter" name="alter" placeholder="z. B. 11 Jahre">
-          </div>
-          <div class="field">
-            <label for="nachricht">Kurz zur Situation (optional)</label>
-            <textarea id="nachricht" name="nachricht" rows="3" placeholder="z. B. seit wann verweigert Ihr Kind die Schule?"></textarea>
-          </div>
-          <div class="consent">
-            <input type="checkbox" id="dsgvo" required>
-            <label for="dsgvo">Ich habe die <a href="datenschutz.html">Datenschutzerklärung</a> gelesen und stimme der Verarbeitung meiner Daten zur Kontaktaufnahme zu.</label>
-          </div>
-          <button type="submit" class="btn btn-wide">Jetzt unverbindlich anfragen</button>
-        </form>
+        <h3>Jetzt Kontakt aufnehmen</h3>
+        <p class="small">Wählen Sie Ihren Weg. Heike Windisch freut sich auf Ihre Nachricht.</p>
+        <div class="contact-options">
+          <a href="https://zeeg.me/info8925/30min?date=2026-06-17&duration=30&seats=1" target="_blank" rel="noopener" class="contact-btn cb-zeeg">
+            <span class="cb-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            </span>
+            <span class="cb-text">
+              <span class="cb-label">Kostenfrei &amp; unverbindlich</span>
+              <span class="cb-main">Telefontermin online buchen</span>
+            </span>
+          </a>
+          <a href="tel:+492119666709" class="contact-btn cb-phone">
+            <span class="cb-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.14 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.05 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.09 9.91a16 16 0 0 0 5.61 5.61l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </span>
+            <span class="cb-text">
+              <span class="cb-label">Direkt anrufen</span>
+              <span class="cb-main">0211 96 66 709</span>
+            </span>
+          </a>
+          <a href="mailto:info@windundrose.de" class="contact-btn cb-mail">
+            <span class="cb-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </span>
+            <span class="cb-text">
+              <span class="cb-label">E-Mail schreiben</span>
+              <span class="cb-main">info@windundrose.de</span>
+            </span>
+          </a>
+        </div>
+        <p class="card-note">Alle Anfragen werden vertraulich behandelt.</p>
       </div>
     </div>
   </div>
